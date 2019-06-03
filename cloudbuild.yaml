@@ -4,5 +4,3 @@ steps:
   args: ['rsync', 'gs://gradle_cache_$PROJECT_ID/', '.']
 - name: 'javiersantos/android-ci:latest'
   args: ['./gradlew', 'assemble'] 
-- name: gcr.io/cloud-builders/gsutil
-  args: ['cp', 'cache.zip', 'gs://gradle_cache_$PROJECT_ID/cache.zip']
