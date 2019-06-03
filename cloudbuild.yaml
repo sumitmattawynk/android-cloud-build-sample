@@ -3,7 +3,6 @@ steps:
   # we use rsync and not cp so that the step does not fail the first time it is run
   args: ['rsync', 'gs://gradle_cache_$PROJECT_ID/', '.']
 - name: 'javiersantos/android-ci:latest'
-  entrypoint: 'gradle-build'
-  args: ['-g', '.gradle', 'assemble']
+  args: ['-g', './gradlew', 'assemble']
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', 'cache.zip', 'gs://gradle_cache_$PROJECT_ID/cache.zip']
